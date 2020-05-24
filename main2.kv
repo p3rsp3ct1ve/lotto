@@ -1,0 +1,103 @@
+# ! /usr/bin/env python
+# -*- coding: utf-8 -*-
+
+<BL>:
+    orientation: 'vertical'
+    size_hint: 1, 1
+    height: self.minimum_height
+
+    Label:
+
+    Image:
+        source: 'Logo.png'
+        size: self.texture_size
+        canvas.before:
+            PushMatrix
+            Rotate:
+                angle: 30
+                origin: self.center
+        canvas.after:
+            PopMatrix
+
+    Label:
+
+    BoxLayout:
+        size: self.minimum_size
+        pos_hint: {"center_x": 0.5}
+
+        Label:
+            text: 'Разделитель:'
+            color: 0,0,0,1
+        
+        MDTextField:
+            id: separator
+            multiline: False
+            text: ', '
+            pos_hint: {"center_y": 0.5}
+
+    Label:
+        id: coin_font_label
+        text: 'Форма жетонов:'
+        color: 0,0,0,1
+        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+    BoxLayout:
+        size_hint_x: 0.5
+        height: self.minimum_height
+        pos_hint: {"center_x": 0.5}
+
+        Button:
+            id: button_round
+            background_normal: 'bg.png'
+            background_color: 107/255, 235/255, 33/255, 1 #green
+            text: 'Круг'
+            on_press: app.changeShape('round')
+
+        Button:
+            id: button_square
+            background_normal: 'bg.png'
+            background_color: 179/255, 181/255, 177/255, 1 #grey
+            text: 'Квадрат'
+            on_press: app.changeShape('square')
+
+    Label:
+        id: coin_font_label
+        text: 'Цвет шрифта жетонов:'
+        color: 0,0,0,1
+        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+    BoxLayout:
+        id: coin_font_color
+        height: self.minimum_height
+
+    Label:
+        id: ticket_font_label
+        text: 'Цвет шрифта билетов:'
+        color: 0,0,0,1
+        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+    BoxLayout:
+        id: ticket_font_color
+        width: self.minimum_width
+        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+    Label:
+        id: ticket_border_label
+        text: 'Цвет рамок в билетах:'
+        color: 0,0,0,1
+        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+    BoxLayout:
+        id: ticket_border_color
+        width: self.minimum_width
+        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+    Label:
+
+    MDRaisedButton:
+        text: 'Создать'
+        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+        on_press: app.create()
+
+    Label:
+            
